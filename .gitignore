@@ -2,3 +2,5 @@
 *.iml
 target
 out
+plugin.xml
+*.zip
