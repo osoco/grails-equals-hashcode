@@ -11,6 +11,6 @@ class IncludedAndModifiedPropertiesSpec extends EqualsHashCodeSpec {
     }
 
     def modifiedPropertiesIgnoredInEqualsAndHashCode() {
-        [ignoredProperty: 'ignored']
+        [ignoredProperty: 'ignored changed']
     }
 }
