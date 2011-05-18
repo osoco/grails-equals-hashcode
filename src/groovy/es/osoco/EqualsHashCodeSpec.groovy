@@ -87,7 +87,8 @@ class EqualsHashCodeSpec extends UnitSpec {
 
         expect:
         !domainObject.equals(domainObject2)
-        domainObject.hashCode() != domainObject2.hashCode()
+        // In a good hashCode implementation domainObject.hashCode() != domainObject2.hashCode(),
+        // but it's not guaranteed
 
         where:
         property << modifiedPropertiesIncludedInEqualsAndHashCode()
