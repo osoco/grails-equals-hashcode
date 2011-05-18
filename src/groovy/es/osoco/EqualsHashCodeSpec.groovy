@@ -1,8 +1,9 @@
 package es.osoco
 
 import spock.lang.Unroll
+import grails.plugin.spock.UnitSpec
 
-class EqualsHashCodeSpec extends grails.plugin.spock.UnitSpec {
+class EqualsHashCodeSpec extends UnitSpec {
 
     def "equals to null returns false"() {
         setup:
