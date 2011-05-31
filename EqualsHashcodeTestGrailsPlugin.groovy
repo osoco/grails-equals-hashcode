@@ -1,5 +1,5 @@
 class EqualsHashcodeTestGrailsPlugin {
-    def version = '0.1'
+    def version = '0.1.1'
     def grailsVersion = '1.3 > *'
     def dependsOn = [spock: '0.5-groovy-1.7']
 

@@ -40,7 +40,7 @@ class EqualsHashCodeSpec extends UnitSpec {
 
         expect:
         domainObject.equals(domainObject2)
-        domainObject.equals(domainObject2)
+        domainObject2.equals(domainObject)
     }
 
     def "hashCode of two equal objects is equal"() {
