@@ -1,0 +1,51 @@
+We have a domain class where we implemented @equals@ and @hashCode@ methods (with Apache Commons Lang builders). @includedSampleProperty@ is used in @equals@/@hashCode@, whereas @ignoredSampleProperty@ is not a part of object's equality.
+{code}
+class DomainObject {
+    def includedSampleProperty
+    def ignoredSampleProperty
+
+    boolean equals(o) {
+        if (o == null) return false
+        if (this.is(o)) return true
+        if (!(o instanceof DomainObject)) return false
+
+        DomainObject that = (DomainObject) o;
+        new EqualsBuilder().append(includedSampleProperty, that.includedSampleProperty).isEquals()
+    }
+
+    int hashCode() {
+        new HashCodeBuilder().append(includedSampleProperty).toHashCode()
+    }
+}
+{code}
+
+We should test both @equals@ and @hashCode@ methods if they:
+
+* fulfill @equals@ and @hashCode@ contracts as specified in @[Object|api:java.lang.Object]@ Javadoc (see below)
+* use some properties in @equals@/@hashCode@
+* ignore some properties (i.e. if their value change, and the remaining properties stay unchanged, @equals@ and @hashCode@ should return the same value as before change)
+
+To keep your code DRY, extend @EqualsHashCodeSpec@ (which in turn extend @UnitSpec@) and:
+
+* override the factory method @createDomainObjectToCompare@ that spawns a new object under test
+* override the method @modifiedPropertiesIncludedInEqualsAndHashCode@ that returns a map of property names used in @equals@/@hashCode@ and their values changed with respect to the object created by @createDomainObjectToCompare@
+* optionally override the method @modifiedPropertiesIgnoredInEqualsAndHashCode@ for properties NOT used in @equals@/@hashCode@
+
+Example for our sample @DomainObject@:
+{code}
+class DomainObjectSpec extends EqualsHashCodeSpec {
+
+    def createDomainObjectToCompare() {
+        new DomainObject(includedSampleProperty: 'foo', ignoredSampleProperty: 'bar')
+    }
+
+    def modifiedPropertiesIncludedInEqualsAndHashCode() {
+        [includedSampleProperty: 'foo changed']
+    }
+
+    def modifiedPropertiesIgnoredInEqualsAndHashCode() {
+        [ignoredSampleProperty: 'bar changed']
+    }
+}
+{code}
+
