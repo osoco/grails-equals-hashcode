@@ -1,0 +1,4 @@
+---
+layout: main
+title: equals-hashcode-test
+---
