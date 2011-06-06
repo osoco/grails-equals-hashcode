@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>1.2 How the plugin works</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <code>EqualsHashCodeSpec</code> applies a  <em class="italic">One Bad Attribute</em>  pattern (variation of  <em class="italic"><a href="http://xunitpatterns.com/Derived%20Value.html" target="blank">Derived Value</a></em> ). For each property used and ignored in <code>equals</code>/<code>hashCode</code>, <code>createDomainObjectToCompare</code> creates two objects to compare. One of the objects is modified - a single property value is changed.<p class="paragraph"/>Tests with changed properties used in <code>equals</code>/<code>hashCode</code> verify that two objects are not equal. They don't check if hashCode values of different objects are the same (although a good implementation of <code>hashCode</code> should return distinct values for unequal objects).<p class="paragraph"/>Tests with properties ignored in <code>equals</code>/<code>hashCode</code> verify that two objects are equal and hash codes are the same (although a property value is different in two objects).
+
+    </body>
+</html>

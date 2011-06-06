@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>1.3 equals and hashCode contracts</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    According to <code><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Object.html" class="api">Object</a></code> Javadoc, <code>equals</code>:<p class="paragraph"/><blockquote class="note">
+<ul class="star">
+<li>It is  <em class="italic">reflexive</em> : for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
+<li>It is  <em class="italic">symmetric</em> : for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code> returns <code>true</code>.</li>
+<li>It is  <em class="italic">transitive</em> : for any non-null reference values <code>x</code>, <code>y</code>, and <code>z</code>, if <code>x.equals(y)</code> returns <code>true</code> and <code>y.equals(z)</code> returns <code>true</code>, then <code>x.equals(z)</code> should return <code>true</code>.</li>
+</ul><p class="paragraph"/>It is  <em class="italic">consistent</em> : for any non-null reference values <code>x</code> and <code>y</code>, multiple invocations of <code>x.equals(y)</code> consistently return <code>true</code> or consistently return <code>false</code>, provided no information used in equals comparisons on the objects is modified.
+For any non-null reference value <code>x</code>, <code>x.equals(null)</code> should return <code>false</code>.
+</blockquote><p class="paragraph"/><code>hashCode</code> should be always implemented when equals is overriden and:<p class="paragraph"/><blockquote class="note">
+<ul class="star">
+<li>Whenever it is invoked on the same object more than once during an execution of a Java application, the <code>hashCode</code> method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.</li>
+<li>If two objects are equal according to the <code>equals(Object)</code> method, then calling the hashCode method on each of the two objects must produce the same integer result.</li>
+<li>It is not required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hashtables.</li>
+</ul><p class="paragraph"/>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the JavaTM programming language.)
+</blockquote>
+    </body>
+</html>
