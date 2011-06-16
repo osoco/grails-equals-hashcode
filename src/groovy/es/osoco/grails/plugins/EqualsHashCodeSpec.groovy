@@ -1,4 +1,4 @@
-package es.osoco
+package es.osoco.grails.plugins
 
 import spock.lang.Unroll
 import grails.plugin.spock.UnitSpec
@@ -108,11 +108,16 @@ class EqualsHashCodeSpec extends UnitSpec {
         property << modifiedPropertiesIgnoredInEqualsAndHashCode()
     }
 
-    def createModifiedDomainObject(def modifiedProperty) {
+    def createModifiedDomainObject(modifiedProperty) {
         def domainObject = createDomainObjectToCompare()
-        domainObject[modifiedProperty.key] = modifiedProperty.value
+       domainObject[modifiedProperty.key] = evaluateValue(modifiedProperty.value)
 
         domainObject
+    }
+
+    private evaluateValue(value)
+    {
+        value instanceof Closure ? value() : value
     }
 
     /**

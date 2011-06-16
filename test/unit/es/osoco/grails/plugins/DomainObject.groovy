@@ -1,4 +1,4 @@
-package es.osoco
+package es.osoco.grails.plugins
 
 import org.apache.commons.lang.builder.EqualsBuilder
 import org.apache.commons.lang.builder.HashCodeBuilder

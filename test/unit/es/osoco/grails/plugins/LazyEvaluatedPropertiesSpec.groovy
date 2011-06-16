@@ -1,16 +1,18 @@
-package es.osoco
+package es.osoco.grails.plugins
 
-class IncludedAndModifiedPropertiesSpec extends EqualsHashCodeSpec {
+import es.osoco.EqualsHashCodeSpec
+
+class LazyEvaluatedPropertiesSpec extends EqualsHashCodeSpec {
 
     def createDomainObjectToCompare() {
         new DomainObject(includedProperty: 'included', ignoredProperty: 'ignored')
     }
 
     def modifiedPropertiesIncludedInEqualsAndHashCode() {
-        [includedProperty: 'included changed']
+        [includedProperty: { 'included changed' }]
     }
 
     def modifiedPropertiesIgnoredInEqualsAndHashCode() {
-        [ignoredProperty: 'ignored changed']
+        [ignoredProperty: { 'ignored changed' }]
     }
 }
