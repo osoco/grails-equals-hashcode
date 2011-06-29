@@ -1,7 +1,5 @@
 package es.osoco.grails.plugins
 
-import es.osoco.EqualsHashCodeSpec
-
 class LazyEvaluatedPropertiesSpec extends EqualsHashCodeSpec {
 
     def createDomainObjectToCompare() {

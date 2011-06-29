@@ -1,7 +1,5 @@
 package es.osoco.grails.plugins
 
-import es.osoco.EqualsHashCodeSpec
-
 class IncludedAndModifiedPropertiesSpec extends EqualsHashCodeSpec {
 
     def createDomainObjectToCompare() {

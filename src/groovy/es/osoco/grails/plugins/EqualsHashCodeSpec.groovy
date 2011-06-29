@@ -5,6 +5,8 @@ import grails.plugin.spock.UnitSpec
 
 class EqualsHashCodeSpec extends UnitSpec {
 
+    private static FAKE_PROPERTY = 'dd2060d0-a28d-11e0-8264-0800200c9a66'
+
     def "equals to null returns false"() {
         setup:
         def domainObject = createDomainObjectToCompare()
@@ -98,7 +100,9 @@ class EqualsHashCodeSpec extends UnitSpec {
     def "equals and hashCode ignore some properties"() {
         setup:
         def domainObject = createDomainObjectToCompare()
-        def domainObject2 = createModifiedDomainObject(property)
+        def domainObject2 = property.key != FAKE_PROPERTY ?
+            createModifiedDomainObject(property) :
+            createDomainObjectToCompare()
 
         expect:
         domainObject.equals(domainObject2)
@@ -110,7 +114,7 @@ class EqualsHashCodeSpec extends UnitSpec {
 
     def createModifiedDomainObject(modifiedProperty) {
         def domainObject = createDomainObjectToCompare()
-       domainObject[modifiedProperty.key] = evaluateValue(modifiedProperty.value)
+        domainObject[modifiedProperty.key] = evaluateValue(modifiedProperty.value)
 
         domainObject
     }
@@ -124,9 +128,9 @@ class EqualsHashCodeSpec extends UnitSpec {
      * To execute a parametrized feature method, Spock needs at least one dataset.
      *
      * Since some domain objects will use all their properties in equals and hashCode comparisons, we must provide
-     * a default implementation with a property that anyway should be ignored (metaClass).
+     * a default implementation with a property that anyway should be ignored.
      */
     def modifiedPropertiesIgnoredInEqualsAndHashCode() {
-        [metaClass: createDomainObjectToCompare().metaClass]
+        ["${FAKE_PROPERTY}": null]
     }
 }

@@ -13,7 +13,7 @@ class DomainObject {
         if (this.is(o)) return true
         if (!(o instanceof DomainObject)) return false
 
-        DomainObject that = (DomainObject) o;
+        DomainObject that = (DomainObject) o
         new EqualsBuilder().append(includedProperty, that.includedProperty).isEquals()
     }
 
