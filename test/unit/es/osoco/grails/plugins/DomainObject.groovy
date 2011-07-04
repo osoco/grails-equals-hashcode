@@ -5,8 +5,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder
 import org.apache.commons.lang.builder.ToStringBuilder
 
 class DomainObject {
-    def includedProperty
-    def ignoredProperty
+    String includedProperty
+    String ignoredProperty
+    SecondLevelDomainObject child
 
     boolean equals(o) {
         if (o == null) return false
@@ -14,11 +15,17 @@ class DomainObject {
         if (!(o instanceof DomainObject)) return false
 
         DomainObject that = (DomainObject) o
-        new EqualsBuilder().append(includedProperty, that.includedProperty).isEquals()
+        new EqualsBuilder()
+            .append(includedProperty, that.includedProperty)
+            .append(child, that.child)
+            .isEquals()
     }
 
     int hashCode() {
-        new HashCodeBuilder().append(includedProperty).toHashCode()
+        new HashCodeBuilder()
+            .append(includedProperty)
+            .append(child)
+            .toHashCode()
     }
 
     String toString() {
