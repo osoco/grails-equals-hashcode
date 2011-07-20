@@ -9,5 +9,5 @@ class EqualsHashcodeTestGrailsPlugin {
     def description = '''\\
 Base Spock specification for testing equals and hashCode methods of Grails domain classes and other Groovy objects.
 '''
-    def documentation = 'https://github.com/osoco/grails-equals-hashcode/wiki'
+    def documentation = 'http://osoco.github.com/grails-equals-hashcode/'
 }

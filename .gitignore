@@ -4,3 +4,4 @@ target
 out
 plugin.xml
 *.zip
+*.log
