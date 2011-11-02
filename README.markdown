@@ -1,1 +1,1 @@
-Documentation URL: http://osoco.github.com/groovy-equals-hashcode/
+Documentation URL: http://osoco.github.com/grails-equals-hashcode/
