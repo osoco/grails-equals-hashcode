@@ -1,7 +1,7 @@
 class EqualsHashcodeTestGrailsPlugin {
-    def version = '0.2.0'
-    def grailsVersion = '1.3 > *'
-    def dependsOn = [spock: '0.5-groovy-1.7']
+    def version = '0.2.0-spock-0.6-SNAPSHOT'
+    def grailsVersion = '2.0.0 > *'
+    def dependsOn = [spock: '0.6-SNAPSHOT']
 
     def author = 'Marcin Gryszko'
     def authorEmail = 'marcin@gryszko.net'
