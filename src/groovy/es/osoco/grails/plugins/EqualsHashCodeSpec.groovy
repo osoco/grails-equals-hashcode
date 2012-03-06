@@ -81,7 +81,7 @@ class EqualsHashCodeSpec extends UnitSpec {
         !domainObject.equals(new Object())
     }
 
-    @Unroll("equals and hashCode use #property")
+    @Unroll({"equals and hashCode use $property"})
     def "equals and hashCode use some properties"() {
         setup:
         def domainObject = createDomainObjectToCompare()
@@ -96,7 +96,7 @@ class EqualsHashCodeSpec extends UnitSpec {
         property << modifiedPropertiesIncludedInEqualsAndHashCode()
     }
 
-    @Unroll("equals and hashCode ignore #property")
+    @Unroll({"equals and hashCode ignore $property"})
     def "equals and hashCode ignore some properties"() {
         setup:
         def domainObject = createDomainObjectToCompare()
