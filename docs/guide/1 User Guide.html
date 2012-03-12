@@ -1,11 +1,97 @@
-<html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-        <title>1 User Guide</title>
-        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
-    </head>
-    <body class="body">
-    <h1><a name="1 User Guide">1 User Guide</a></h1>This plugin provides a base <a href="http://code.google.com/p/spock/" target="blank">Spock</a> specification for testing equals and hashCode methods. You can use it to test both Grails domain classes and other Groovy objects.<p class="paragraph"/>It depends on the <a href="http://www.grails.org/plugin/spock" target="blank">Grails Spock plugin</a> which in turn depends on Spock <code>0.5-groovy-1.7</code> version.<h2><a name="1.1 How to use the plugin">1.1 How to use the plugin</a></h2>We have a domain class where we implemented <code>equals</code> and <code>hashCode</code> methods (with Apache Commons Lang builders). <code>includedSampleProperty</code> and <code>child</code> are used in <code>equals</code>/<code>hashCode</code>, whereas <code>ignoredSampleProperty</code> is not a part of object's equality.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>1 User Guide 0.2-spock-0.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/1%20User%20Guide.html"><strong>1</strong><span>User Guide</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>\
+Base Spock specification for testing equals and hashCode methods of Grails domain classes and other Groovy objects.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>1 User Guide - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Marcin Gryszko</p>
+
+                    <p><strong>Version:</strong> 0.2-spock-0.6</p>
+
+                    
+                </div>
+
+                
+                <div id="table-of-content">
+                    <h2>Table of Contents</h2>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#1.1%20How%20to%20use%20the%20plugin"><strong>1.1</strong><span>How to use the plugin</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#1.2%20How%20the%20plugin%20works"><strong>1.2</strong><span>How the plugin works</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#1.3%20equals%20and%20hashCode%20contracts"><strong>1.3</strong><span>equals and hashCode contracts</span></a>
+                    </div>
+                    
+                </div>
+                
+
+                
+
+<h1 id="1 User Guide">1 User Guide</h1>
+This plugin provides a base <a href="http://code.google.com/p/spock/" target="blank">Spock</a> specification for testing equals and hashCode methods. You can use it to test both Grails domain classes and other Groovy objects.<p class="paragraph"/>It depends on the <a href="http://www.grails.org/plugin/spock" target="blank">Grails Spock plugin</a> which in turn depends on Spock <code>0.5-groovy-1.7</code> version.
+
+
+<h2 id="1.1 How to use the plugin">1.1 How to use the plugin</h2>
+We have a domain class where we implemented <code>equals</code> and <code>hashCode</code> methods (with Apache Commons Lang builders). <code>includedSampleProperty</code> and <code>child</code> are used in <code>equals</code>/<code>hashCode</code>, whereas <code>ignoredSampleProperty</code> is not a part of object's equality.
 <div class="code"><pre>class DomainObject &#123;
     <span class="java&#45;object">String</span> includedSampleProperty
     <span class="java&#45;object">String</span> ignoredSampleProperty
@@ -28,7 +114,7 @@
     <span class="java&#45;object">int</span> hashCode() &#123; // &#8230; &#125;
 &#125;</pre></div><p class="paragraph"/>We should test both <code>equals</code> and <code>hashCode</code> methods if they:
 <ul class="star">
-<li>fulfill <code>equals</code> and <code>hashCode</code> contracts as specified in <code><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Object.html" class="api">Object</a></code> Javadoc (see below)</li>
+<li>fulfill <code>equals</code> and <code>hashCode</code> contracts as specified in <code>api:java.lang.Object</code> Javadoc (see below)</li>
 <li>use some properties in <code>equals</code>/<code>hashCode</code></li>
 <li>ignore some properties (i.e. if their value change, and the remaining properties stay unchanged, <code>equals</code> and <code>hashCode</code> should return the same value as before change)</li>
 </ul><p class="paragraph"/>To keep your code DRY, extend <code>EqualsHashCodeSpec</code> (which in turn extends <code>UnitSpec</code>) and:
@@ -55,8 +141,16 @@
         &#91;ignoredSampleProperty: 'bar changed'&#93;
     &#125;
 &#125;</pre></div>
-<h2><a name="1.2 How the plugin works">1.2 How the plugin works</a></h2><code>EqualsHashCodeSpec</code> applies a  <em class="italic">One Bad Attribute</em>  pattern (variation of  <em class="italic"><a href="http://xunitpatterns.com/Derived%20Value.html" target="blank">Derived Value</a></em> ). For each property used and ignored in <code>equals</code>/<code>hashCode</code>, <code>createDomainObjectToCompare</code> creates two objects to compare. One of the objects is modified - a single property value is changed.<p class="paragraph"/>Tests with changed properties used in <code>equals</code>/<code>hashCode</code> verify that two objects are not equal. They don't check if hashCode values of different objects are the same (although a good implementation of <code>hashCode</code> should return distinct values for unequal objects).<p class="paragraph"/>Tests with properties ignored in <code>equals</code>/<code>hashCode</code> verify that two objects are equal and hash codes are the same (although a property value is different in two objects).
-<h2><a name="1.3 equals and hashCode contracts">1.3 equals and hashCode contracts</a></h2>According to <code><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Object.html" class="api">Object</a></code> Javadoc, <code>equals</code>:<p class="paragraph"/><blockquote class="note">
+
+
+
+<h2 id="1.2 How the plugin works">1.2 How the plugin works</h2>
+<code>EqualsHashCodeSpec</code> applies a  <em class="italic">One Bad Attribute</em>  pattern (variation of  <em class="italic"><a href="http://xunitpatterns.com/Derived%20Value.html" target="blank">Derived Value</a></em> ). For each property used and ignored in <code>equals</code>/<code>hashCode</code>, <code>createDomainObjectToCompare</code> creates two objects to compare. One of the objects is modified - a single property value is changed.<p class="paragraph"/>Tests with changed properties used in <code>equals</code>/<code>hashCode</code> verify that two objects are not equal. They don't check if hashCode values of different objects are the same (although a good implementation of <code>hashCode</code> should return distinct values for unequal objects).<p class="paragraph"/>Tests with properties ignored in <code>equals</code>/<code>hashCode</code> verify that two objects are equal and hash codes are the same (although a property value is different in two objects).
+
+
+
+<h2 id="1.3 equals and hashCode contracts">1.3 equals and hashCode contracts</h2>
+According to <code>api:java.lang.Object</code> Javadoc, <code>equals</code>:<p class="paragraph"/><blockquote class="note">
 <ul class="star">
 <li>It is  <em class="italic">reflexive</em> : for any non-null reference value <code>x</code>, <code>x.equals(x)</code> should return <code>true</code>.</li>
 <li>It is  <em class="italic">symmetric</em> : for any non-null reference values <code>x</code> and <code>y</code>, <code>x.equals(y)</code> should return <code>true</code> if and only if <code>y.equals(x)</code> returns <code>true</code>.</li>
@@ -70,5 +164,33 @@ For any non-null reference value <code>x</code>, <code>x.equals(null)</code> sho
 <li>It is not required that if two objects are unequal according to the <code>equals(java.lang.Object)</code> method, then calling the <code>hashCode</code> method on each of the two objects must produce distinct integer results. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hashtables.</li>
 </ul><p class="paragraph"/>As much as is reasonably practical, the hashCode method defined by class <code>Object</code> does return distinct integers for distinct objects. (This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the JavaTM programming language.)
 </blockquote>
-    </body>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
 </html>
