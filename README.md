@@ -1,5 +1,5 @@
 # Summary
-Base [Spock](http://code.google.com/p/spock/) specification for testing equals and hashCode methods if they are compliant equals/hashCode contracts.
+Base [Spock](http://code.google.com/p/spock/) specification for testing equals and hashCode methods if they are compliant with equals/hashCode contracts.
 
 As of 0.3 version it's independent of the Spock and Grails Spock plugin [Grails Spock plugin](http://www.grails.org/plugin/spock) version
 
