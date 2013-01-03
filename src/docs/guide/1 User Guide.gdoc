@@ -1,3 +1,0 @@
-This plugin provides a base [Spock|http://code.google.com/p/spock/] specification for testing equals and hashCode methods. You can use it to test both Grails domain classes and other Groovy objects.
-
-It depends on the [Grails Spock plugin|http://www.grails.org/plugin/spock] which in turn depends on Spock @0.5-groovy-1.7@ version.

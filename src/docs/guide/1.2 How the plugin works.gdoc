@@ -1,5 +1,0 @@
-@EqualsHashCodeSpec@ applies a _One Bad Attribute_ pattern (variation of _[Derived Value|http://xunitpatterns.com/Derived%20Value.html]_). For each property used and ignored in @equals@/@hashCode@, @createDomainObjectToCompare@ creates two objects to compare. One of the objects is modified - a single property value is changed. 
-
-Tests with changed properties used in @equals@/@hashCode@ verify that two objects are not equal. They don't check if hashCode values of different objects are the same (although a good implementation of @hashCode@ should return distinct values for unequal objects). 
-
-Tests with properties ignored in @equals@/@hashCode@ verify that two objects are equal and hash codes are the same (although a property value is different in two objects).
