@@ -1,6 +1,8 @@
 class EqualsHashcodeTestGrailsPlugin {
-    def version = '0.3'
+    def version = '0.3.1'
     def grailsVersion = '1.3.7 > *'
+
+    def loadAfter = ['spock']
 
     def title = 'Base Spock specification for equals and hashCode tests'
     def description = '''\\
